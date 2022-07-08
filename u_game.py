@@ -1,16 +1,16 @@
 import pygame as pg
-import currency, console, u_game_check
+import currency, console, u_game_check, random
 
 first_msg = u_game_check.U_Game_Check(
     """You wake up on the wrong side of the bed, the side covered in your blood.
             You feel the two 14 gauge syringe marks on your left deltoid."""
 )
 
-
 class U_Game:
     def __init__(self, resolution):
         self.screen, self.clock, self.console_font = U_Game.initialize(resolution)
         self.currs = dict()
+        self.curr_check = {first_msg}
 
     def initialize(resolution):
         # pygame.init() will initialize all
@@ -35,5 +35,10 @@ class U_Game:
 
     def write_to_console(self, console: console.Console):
 
-        if first_msg.should_check:
-            console.write(first_msg.complete())
+        # NEEDS TO BE REWRITTEN
+        for check in self.curr_check:
+            if check.should_check:
+                console.write(first_msg.complete())
+        
+
+

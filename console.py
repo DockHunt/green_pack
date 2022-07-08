@@ -6,14 +6,20 @@ class Console:
     def __init__(self, cons_rect, font: pg.font):
         self.rect = cons_rect
         self.curr_text = ""
-        self.text_color = (200, 200, 200)
-        self.bg_color = (24, 24, 24)
+        self.text_color = pg.Color(200, 200, 200)
+        self.bg_color = pg.Color(24, 24, 24)
         self._font = font
 
     def draw(self, surface, alpha=255):
+        
+        # make a temp surface for alpha control
+        temp = pg.Surface((self.rect.w, self.rect.h))
+        temp.set_alpha(145)
+        temp.fill(self.bg_color)
+        surface.blit(temp, (0,0))
+        
         # draw rectangle and argument passed which should
         # be on screen
-        pg.draw.rect(surface, self.bg_color, self.rect)
 
         words = [
             word.split(" ") for word in self.curr_text.splitlines()

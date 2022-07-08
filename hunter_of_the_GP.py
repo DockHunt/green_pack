@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 """ 2nd version of Werewolf Pack Leader by Dock Hunter
 Started: 9/16/2021
 Last update: 1.1 on 24/6/22
@@ -7,7 +8,7 @@ A GUI idle game about growing a pack of lycathropes
 # import sys module
 import pygame as pg
 import sys, random
-import console, counter, currency, u_button, u_game, u_image
+import body, console, counter, currency, u_button, u_game, u_image
 
 
 def main():
@@ -53,8 +54,8 @@ def main():
     nanobot_btn = u_button.U_Button(nano_btn_rect, "condense iron", you.console_font)
     drawables.add(nanobot_btn)
     # body diagram
-    bdy_rect = pg.Rect(5, 410, 600, 1000)
-    our_body = u_image.U_Image(bdy_rect, "images/frontier_psychology2.png")
+    bdy_rect = pg.Rect(5, 50, 600, 1000)
+    our_body = body.Body(bdy_rect)
     drawables.add(our_body)
 
     max_ticker = 100
@@ -116,9 +117,9 @@ def main():
         if ticker <= 0:
             ticker = max_ticker
             if blood._quantity > max_blood:
-                blood.set_quantity(blood._quantity * 0.998)
+                blood.set_quantity(blood._quantity * 0.98)
             else:
-                blood.set_quantity(blood._quantity * 1.001)
+                blood.set_quantity(blood._quantity * 1.1)
 
             if nanobots._quantity > max_nanobots:
                 nanobots.set_quantity(nanobots.quantity * 0.999)

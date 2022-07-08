@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 import pygame as pg
 
-
 class U_Image:
-    def __init__(self, cons_rect: pg.Rect, image_location):
-        self.rect = cons_rect
+    def __init__(self, rect: pg.Rect, image_location):
+        self.rect = rect
         self.image = pg.image.load(image_location).convert_alpha()
 
     def draw(self, surface, alpha=255):
