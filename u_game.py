@@ -6,6 +6,7 @@ first_msg = u_game_check.U_Game_Check(
             You feel the two 14 gauge syringe marks on your left deltoid."""
 )
 
+
 class U_Game:
     def __init__(self, resolution):
         self.screen, self.clock, self.console_font = U_Game.initialize(resolution)
@@ -39,6 +40,3 @@ class U_Game:
         for check in self.curr_check:
             if check.should_check:
                 console.write(first_msg.complete())
-        
-
-

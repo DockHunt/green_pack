@@ -122,11 +122,9 @@ def main():
                 blood.set_quantity(blood._quantity * 1.1)
 
             if nanobots._quantity > max_nanobots:
-                nanobots.set_quantity(nanobots.quantity * 0.999)
+                nanobots.set_quantity(nanobots._quantity * 0.999)
             else:
-                if nanobots._quantity > max_nanobots * 0.9:
-                    nanobots.set_quantity(nanobots._quantity - 1)
-                    nanobots.set_quantity(nanobots._quantity + random.randint(20, 39))
+                nanobots.set_quantity(nanobots._quantity * 1.1)
 
         # clock.tick(60) means that for every second at most
         # 60 frames should be passed.
